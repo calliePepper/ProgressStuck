@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" type="image/x-icon" href="http://progressquest.com/favicon.ico">
+<title>Progress Stuck - Roster</title>
+<script src="json2.js"></script>
+<script src="jquery.js"></script>
+<script src="config.js"></script>
+<script src="roster.js"></script>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<style>
+
+.brag {
+  display: inline-block;
+  background-color: #ddddff;
+  margin: 5px;
+  border: solid 2px #ccccee;
+}
+.lit {
+  border: solid 2px #66ccee;
+}
+.brag td {
+  font-size: 9pt;
+  font-family: Tahoma, Helvetica, sans-serif;
+}
+div.rc {
+  font-size: 9pt;
+}
+
+div.bs {
+  font-size: 7pt;
+}
+
+body {
+  text-align: center;
+  background:#5a5a5a;
+  margin:0;
+  padding:0;
+  font-family: courier, monospace
+}
+
+.wrapper{
+  width:950px;
+  margin:0 auto;
+  background-color:#eeeeee;
+
+  margin-bottom:20px;
+}
+.needBottom {
+border-bottom:5px solid #c6c6c6;
+}
+
+.needTop {
+  border-top:5px solid #c6c6c6;
+}
+
+p {
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: left;
+}
+#newc {
+  text-align: center;
+}
+.brag a, .brag a:visited {
+  color: blue;
+  text-decoration: none;
+}
+a.icon.go {
+  font-size: 3em;
+}
+a.x, a.sheet {
+  font-size: 12pt;
+}
+.sig {
+  text-align: center;
+  font-size: small;
+  color: #808080;
+}
+.sig a, .sig a:visited {
+  color: #808080;
+  text-decoration: none;
+}
+.banter {
+  font-size: 11pt;
+}
+img {
+  border-style: none;
+}
+
+.sig {
+  text-align: center;
+  font-size: small;
+  color: #808080;
+}
+.sig a, .sig a:visited {
+  color: #808080;
+  text-decoration: none;
+}
+.banter {
+  font-size: 11pt;
+}
+#go {
+font-size: 30pt;
+}
+img {
+  border-style: none;
+}
+th, td { text-align: left; padding-right: 2em; }
+.good { color: #2a2; }
+.bad  { color: #a22; }
+.ugly { color: #c82; }
+</style>
+</head>
+
+<body>
+  <div class='wrapper needBottom'>
+    <a href="/"><img src='newTitle.png' alt='title' /></a>
+  </div>
+<div class='wrapper needBottom needTop'>
+
+<h1>Character Roster</h1>
+
+<p id="roster" class="banter">
+</p>
+
+<table class="brag">
+  <tr>
+    <td id="newc">
+      <b>New Character</b> <br>
+      <img src="disk1.png"><br>
+      <button id="roll">Insert disk 1</button>
+    </td>
+  </tr>
+</table>
+</div>
+<div class='wrapper needBottom needTop'>
+
+<p>
+Recently ported to HTML5, Progress Quest is a wonderful game about doing nothing to achieve everything. But we thought, Homestuck fans are great at doing nothing, why not give them an opportunity to shine as well?
+</p>
+<p>
+So we stole all the code (we swear it was legit) and we poked and proded and carefully molded it into shape with a hammer until it vaguely represented Homestuck.
+</p>
+<p>
+Between you, me, and Maplehoof, this is pretty much
+beta software at this point. Browser support breakdown:
+<center>
+<table>
+<tr>
+  <th class=good>Chrome, Firefox, Safari 
+  <td>Aces! Works great! (The original creator thinks)
+<tr>
+  <th class=ugly>Opera, Mobile Safari, Internet Explorer
+  <td>Some visual glitches. Should play fine.
+</table>
+</center>
+<br /><br />
+<div class="sig">Original source code by Grumdig (<a class=dim
+   href="mailto:grumdrig@progressquest.com">grumdrig@progressquest.com</a>). Homestuck modifications by Soldevifae and Sebirlinem. <a href='http://www.mspaintadventures.com'>Homestuck is a creation by Andrew Hussy</a>
+</div>
+<br /><br />
+</div>
+
+</body>
+
+
+<script id="badge" type="text/html">
+  <table class="brag">
+    <tr>
+      <td><a class="icon go">&#x2694;</a></td>
+      <td>
+        <div>
+          <a class="go"><b>$Traits.Name</b></a> the $Traits.Race  ($bestplot)
+        </div>
+        <div class="rc">Tier $Traits.Tier $Traits.Role | $Traits.Echeladder</div>
+        <div class="bs">$bestequip / $bestspell / $beststat</div>
+      </td>
+      <td>
+        <a class="icon x" href="#">&#x2620;</a><br>
+        <!-- <a class="sheet" href="#">&#x270F;</a> -->
+      </td>
+    </tr>
+  </table>
+</script>
+
+
+<script type="text/charsheet" id="sheet">
+$Traits.Name the $Traits.Race [$hostname]
+"$motto"
+
+Tier $Traits.Tier $Traits.Role $Traits.Echeladder (exp. $ExpBar.position/$ExpBar.max)
+
+Plot stage: $bestplot ($PlotBar.hint)
+Quest: $bestquest ($QuestBar.hint)
+
+Stats:
+   STR $Stats.STR
+   CON $Stats.CON
+   DEX $Stats.DEX
+   INT $Stats.INT
+   WIS $Stats.WIS   HP Max $Stats.HP_Max
+   CHA $Stats.CHA   MP Max $Stats.MP_Max
+
+Equipment:
+$Equips.___
+Spell Book:
+$Spells.___
+Inventory ($EncumBar.hint):
+$Inventory.___
+-- $date
+-- Progress Quest 6.3.web - http://progressquest.com/
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-40923417-1', 'new-growth.com');
+  ga('send', 'pageview');
+
+
+</script>
+
+
+
+</html>

@@ -1,0 +1,13 @@
+Progress Quest - Web
+====================
+
+This is the in-browser edition of Progress Quest, ported from Delphi
+to JavaScript.
+
+- Progress Quest site:  http://progressquest.com/
+- Play it here:         http://progressquest.com/play/
+- Original version:     https://bitbucket.org/grumdrig/pq
+
+The whole thing runs in the browser, on the client side, using HTML5
+storage and so forth; there's no server side other that hosting static
+files. To run your own copy, clone this repo, and open index.html.

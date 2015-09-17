@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" type="image/x-icon" href="http://progressquest.com/favicon.ico">
+<link rel="stylesheet" href="progros.css" type="text/css">
+<link rel="stylesheet" href="main.css" type="text/css">
+<title>Progress Stuck</title>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<meta name="viewport"
+      content="initial-scale=1.0,
+               maximum-scale=1.0,
+               minimum-scale=1.0,
+               user-scalable=0" />
+<meta names="apple-mobile-web-app-status-bar-style" content="black" />
+<link rel="apple-touch-icon" href="touch-icon.png" />
+</head>
+
+<body>
+
+<div id='controls'>
+  <img src='open.png' id='controlControls' alt='Control controls' />
+  <div class='quarters'>
+    <a onClick='changeKid("john");'>
+      <img src='iconJohn.png' alt='Johns icon' />
+      John's Computer
+    </a>
+  </div>
+  <div class='quarters'>
+    <a onClick='changeKid("dave");'>
+      <img src='iconDave.png' alt='Daves icon' />
+      Dave's Computer
+    </a>
+  </div>
+  <div class='quarters'>
+    <a onClick='changeKid("rose");'>
+      <img src='iconRose.png' alt='Roses icon' />
+      Rose's Computer
+    </a>
+  </div>
+  <div class='quarters'>
+    <a onClick='changeKid("jade");'>
+      <img src='iconJade.png' alt='Jades icon' />
+      Jade's Computer
+    </a>
+  </div>
+</div>
+
+<br>
+
+<div class="vbox window" id="main">
+
+<div id="titlebar">
+  <img src="icon.png">
+  <span id="title">Progress Stuck</span>
+  <a id="quit"><img src="closeup.png"></a>
+</div>
+
+<script src="json2.js"></script>
+<script src="jquery.js"></script>
+<script src="config.js"></script>
+<script src="main.js"></script>
+
+<div class="hbox">
+  <div class="vbox" id="Izquierda">
+
+    <span class="label head" >Character Sheet</span>
+
+    <table class="listbox" id="Trats">
+      <thead>
+        <tr>
+          <th>Trait</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody id="Traits">
+        <tr>
+          <td>Name</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Role</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Race</td>
+          <td></td>
+        </tr>               
+        <tr>
+          <td>Tier</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Echeladder</td>
+          <td>1</td>
+        </tr>        
+      </tbody>
+
+      <thead class="mid">
+        <tr>
+          <th>Stat</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody id="Stats">
+        <tr><td>Strife</td><td></td></tr>
+        <tr><td>Irony</td><td></td></tr>
+        <tr><td>Scamper</td><td></td></tr>
+        <tr><td>Inebriation</td><td></td></tr>
+        <tr><td>Genteel</td><td></td></tr>
+        <tr><td>Trickster</td><td></td></tr>
+        <tr><td>HP Max</td><td></td></tr>
+        <tr><td>MP Max</td><td></td></tr>
+      </tbody>
+    </table>
+
+    <div class="label">Experience</div>
+
+    <div class="progress-container" id="ExpBar">
+      <div class="hint"></div>
+      <div class="bar"></div>
+    </div>
+
+    <span class="label head" >Special Attacks</span>
+    <div id="Spells" class="scroll listbox">
+      <table>
+        <thead>
+          <tr>
+            <th class="key">Attack</th>
+            <th class="value">Level</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="vbox" id="Centro">
+    <span class="label head">Equipment</span>
+
+    <table id="Equips" class="listbox">
+      <tbody>
+        <tr><td>Weapon</td><td></td></tr>
+        <tr><td>Off Hand</td><td></tr>
+        <tr><td>Hat<td></tr>
+        <tr><td>Shirt<td></tr>
+        <tr><td>Pants<td></td></tr>
+        <tr><td>Shoes<td></tr>
+      </tbody>
+    </table>
+
+    <span class="label head" >Sylladex</span>
+    <div id="Inventory" class="scroll listbox">
+      <table >
+        <thead>
+          <tr>
+            <th class="key">Item</th>
+            <th class="value">Qty</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="label">Encumbrance</div>
+    <div class="progress-container" id="EncumBar">
+      <div class="hint"></div>
+      <div class="bar"></div>
+    </div>
+    <span class="label head">Planets</span>
+
+    <table id='Planets' class="listbox">
+      <tbody>
+        <tr>
+          <td>Current</td>
+          <td></td>
+        </tr> 
+        <tr>
+          <td>Visited</td>
+          <td></td>
+        </tr> 
+      </tbody>
+    </table>
+
+
+  </div>
+
+
+  <div class="vbox" id="Derecha">
+
+    <span class="label head">Plot Development</span>
+    <div id="Plots" class="scroll listbox">
+      <table>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="progress-container" id="PlotBar">
+      <div class="hint"></div>
+      <div class="bar"></div>
+    </div>
+
+    <span class="label head">Quests</span>
+    <div id="Quests" class="scroll listbox">
+      <table>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="progress-container" id="QuestBar">
+      <div class="hint"></div>
+      <div class="bar"></div>
+    </div>
+  </div>
+
+</div>
+
+<div id="Kill" class="label"></div>
+
+<div class="progress-container" id="TaskBar">
+  <div class="hint"></div>
+  <div class="bar"></div>
+</div>
+
+</div>
+
+<br>
+
+<div id="paused"><br>PAUSED</div>
+
+<script>
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-40923417-1', 'new-growth.com');
+  ga('send', 'pageview');
+
+</script>
+
+
+</body>
+
+
+</html>
